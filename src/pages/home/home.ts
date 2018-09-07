@@ -18,7 +18,6 @@ import { SettingsPage } from '../settings/settings';
   templateUrl: 'home.html',
 })
 export class HomePage {
-  Settings: string;
   Wallet: string;
   NithyaPanchanga: string;
   Product: string;
@@ -29,14 +28,12 @@ export class HomePage {
   ProductPage= ProductPage;
   NithyaPanchangaPage = NithyaPanchangaPage;
   WalletPage= WalletPage;
-  SettingsPage= SettingsPage;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
     this.AstroliteMobile="AstroliteMobile";
     this.Services="Services";
     this.Product="Product";
     this.NithyaPanchanga="NithyaPanchanga";
     this.Wallet="Wallet";
-    this.Settings="Settings";
   }
 
   ionViewDidLoad() {
