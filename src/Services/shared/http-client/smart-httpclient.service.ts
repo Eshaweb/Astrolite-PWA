@@ -23,6 +23,7 @@ export function applicationHttpClientCreator(http: HttpClient,loaderService: Loa
 export class SmartHttpClient {
 
   private api = 'http://astroliteapi.azurewebsites.net/api/';
+  // private api = 'https://www.igniteui.com/api/';
 
   // Extending the HttpClient through the Angular DI.
   public constructor(public http: HttpClient,private loaderService: LoaderService) {

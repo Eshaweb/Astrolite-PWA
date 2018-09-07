@@ -51,6 +51,8 @@ export class DepositWalletPage {
   };
   onClick() {
     var endPoint = "Sales/GetPayCodes";
+    // var endPoint = "products";
+    
     // const options:IRequestOptions={
     //   headers: '',
     //   observe:'body',
