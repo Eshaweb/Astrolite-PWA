@@ -29,6 +29,7 @@ import { NithyaPanchangaMorePage } from '../pages/nithya-panchanga-more/nithya-p
 
 
 import { AstroliteMobilePage } from '../pages/astrolite-mobile/astrolite-mobile';
+import { HomePage } from '../pages/home/home';
 
 
 
@@ -37,7 +38,7 @@ import { AstroliteMobilePage } from '../pages/astrolite-mobile/astrolite-mobile'
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = AstroliteMobilePage;
+    rootPage:any = HomePage;
 
   constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
@@ -47,9 +48,9 @@ export class MyApp {
       splashScreen.hide();
     });
   }
-  goToAstroliteMobile(params){
+  goToHome(params){
     if (!params) params = {};
-    this.navCtrl.setRoot(AstroliteMobilePage);
+    this.navCtrl.setRoot(HomePage);
   }goToFullHoroscope(params){
     if (!params) params = {};
     this.navCtrl.setRoot(FullHoroscopePage);

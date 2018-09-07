@@ -69,7 +69,13 @@ export class DepositWalletPage {
     //   this.paymentModes = data;
     // });
 
-    this.paymentModes=[{"Id":"C","Text":"Cash"},{"Id":"Q","Text":"Cheque"},{"Id":"P","Text":"Credit"},{"Id":"L","Text":"Net Banking"}]
+    this.paymentModes=[{"Id":"C","Text":"Cash"},
+                       {"Id":"Q","Text":"Cheque"},
+                       {"Id":"P","Text":"Credit"},
+                       {"Id":"L","Text":"Net Banking"}];
+  }
+  ObjChanged(event){
+
   }
   onAmount(value) {
     if (value < 50 || value > 20000) {

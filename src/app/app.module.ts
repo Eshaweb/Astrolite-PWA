@@ -39,6 +39,7 @@ import { UIService } from '../Services/UIService/ui.service';
 import { SmartHttpClient, applicationHttpClientCreator } from '../Services/shared/http-client/smart-httpclient.service';
 import { HttpClientModule, HttpClient } from '../../node_modules/@angular/common/http';
 import { LoaderService } from '../Services/shared/loader.service';
+import { HomePage } from '../pages/home/home';
 
 @NgModule({
   declarations: [
@@ -69,7 +70,8 @@ import { LoaderService } from '../Services/shared/loader.service';
     DepositHistroyPage,
     WalletStatementPage,
     LastTransactionPage,
-    DeliveryAddressPage
+    DeliveryAddressPage,
+    HomePage
   ],
   imports: [
     BrowserModule,DevExtremeModule,HttpClientModule,
@@ -104,7 +106,7 @@ import { LoaderService } from '../Services/shared/loader.service';
     DepositHistroyPage,
     WalletStatementPage,
     LastTransactionPage,
-    DeliveryAddressPage
+    DeliveryAddressPage,HomePage
   ],
   providers: [UIHelperService,UIService,SmartHttpClient,LoaderService,
     {
