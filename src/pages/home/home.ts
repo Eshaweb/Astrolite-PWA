@@ -31,10 +31,10 @@ export class HomePage {
   WalletPage= WalletPage;
   SettingsPage= SettingsPage;
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-    this.AstroliteMobile="AstroliteMobile";
+    this.AstroliteMobile="Home";
     this.Services="Services";
     this.Product="Product";
-    this.NithyaPanchanga="NithyaPanchanga";
+    this.NithyaPanchanga="Panchanga";
     this.Wallet="Wallet";
     this.Settings="Settings";
   }
