@@ -10,7 +10,7 @@ import { PaymentSuccessPage } from '../payment-success/payment-success';
 import { MediumHoroscopePage } from '../medium-horoscope/medium-horoscope';
 import { AstamangalaPage } from '../astamangala/astamangala';
 import { PrashnoInputsPage } from '../prashno-inputs/prashno-inputs';
-import { Horoscope2Page } from '../horoscope2/horoscope2';
+import { HoroscopePage } from '../horoscope/horoscope';
 
 @Component({
   selector: 'page-services',
@@ -50,8 +50,8 @@ export class ServicesPage {
   }goToPrashnoInputs(params){
     if (!params) params = {};
     this.navCtrl.push(PrashnoInputsPage);
-  }goToHoroscope2(params){
+  }goToHoroscope(params){
     if (!params) params = {};
-    this.navCtrl.push(Horoscope2Page);
+    this.navCtrl.push(HoroscopePage);
   }
 }

@@ -9,7 +9,7 @@
   </ion-navbar>
 </ion-header>
 <ion-content padding id="page13">
-  <form id="horoscope-form9">
+  <!-- <form id="horoscope-form9">
     <ion-item id="horoscope-input29">
       <ion-label>
         Name
@@ -41,5 +41,80 @@
   </form>
   <button id="horoscope-button19" ion-button color="calm" block>
     Submit
-  </button>
+  </button> -->
+
+  <form [formGroup]="horoscopeForm">
+    <ion-item-divider color="light">Enter Details </ion-item-divider>
+    <br>
+<ion-row>
+  <ion-col col-12 col-sm>
+    <div class="dx-field-label">Name</div>
+    <div class="dx-field-value" style="width: 100%">
+        <dx-text-box id="txtName" formControlName="name" placeholder="Enter Name here..." showClearButton="true"></dx-text-box>
+    </div>
+</ion-col>
+<ion-col col-12 col-sm>
+    <div class="dx-field-label">Father Name</div>
+    <div class="dx-field-value" style="width: 100%">
+        <dx-text-box id="txtfname" formControlName="fname" placeholder="Enter Father Name here..." showClearButton="true"></dx-text-box>
+    </div>
+</ion-col>
+<ion-col col-12 col-sm>
+  <div class="dx-field-label">Mother Name</div>
+  <div class="dx-field-value" style="width: 100%">
+      <dx-text-box id="txtmname" formControlName="mname" placeholder="Enter Mother Name here..." showClearButton="true"></dx-text-box>
+  </div>
+</ion-col>
+</ion-row>
+<ion-row>
+  <div class="dx-field-label">Gothra</div>
+  <div class="dx-field-value" style="width: 100%">
+      <dx-text-box formControlName="gothra" placeholder="Enter Gothra here..." [showClearButton]="true">
+      </dx-text-box>
+      <p style="color: red">{{gothraMessage}}</p>
+  </div>
+</ion-row>
+<ion-row>
+    <ion-col col-12 col-sm>
+      <div class="dx-field-label">Birth Date and Time*</div>
+      <div class="dx-field-value" style="width: 100%">
+          <dx-date-box
+              formControlName="Bdate"
+              [value]="now"
+              type="datetime">
+          </dx-date-box>
+      </div>
+      <p style="color: red">{{dateMessage}}</p>
+</ion-col>
+</ion-row>
+<ion-row>
+  <div class="dx-field-label">Birth Place</div>
+        <div class="dx-field-value" style="width: 100%">
+            <dx-text-box id="txtHome" formControlName="bplace" placeholder="Enter Name here..." showClearButton="true"></dx-text-box>
+            <p style="color: red">{{nameMessage}}</p>
+            <p>Latitude: {{latitude}}</p><p>Longitude: {{longitude}}</p>
+            <p>TimeZoneName: {{timeZoneName}}</p><p>TimeZoneId: {{timeZoneId}}</p>
+        </div>
+</ion-row>
+<ion-row>
+  <div class="dx-field-label">Select Language</div>
+  <div class="dx-field-value" style="width: 100%">
+      <dx-select-box formControlName="language" 
+          [items]="customerTypes"
+          placeholder="Choose Type"
+          displayExpr="Text"
+              valueExpr="Id"
+              [searchEnabled]="true"
+          showClearButton="true"
+      ></dx-select-box>
+</div> 
+</ion-row>
+<ion-row>
+
+<dx-button class="buttonClass2" [disabled]="!customerForm.valid" [text]="applyButtonOptions.text" [type]="submit" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+
+<dx-button class="buttonClass1" [text]="deleteButtonOptions.text" [type]="deleteButtonOptions.type" (onClick)="deleteButtonOptions.onClick()" style="margin-left:55px;" ></dx-button>
+ 
+</ion-row>
+</form>
 </ion-content>

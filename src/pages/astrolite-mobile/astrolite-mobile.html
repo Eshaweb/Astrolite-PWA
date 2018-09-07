@@ -1,4 +1,4 @@
-<ion-header>
+<!-- <ion-header>
   <ion-navbar>
     <button ion-button menuToggle>
       <ion-icon name="menu"></ion-icon>
@@ -12,7 +12,7 @@
       </button>
     </ion-buttons>
   </ion-navbar>
-</ion-header>
+</ion-header> -->
 <ion-content padding id="page1" style="background-color:#FCFCFC;">
     <ion-tabs #paymentTabs class="tabs-basic" [selectedIndex]="0" tabsPlacement="top">
         <ion-tab tabTitle={{FTT}} (swipe)="swipeEvent($event)" [root]="FTTPage" tabsHideOnSubPages="true" [rootParams]="navparams"></ion-tab>
@@ -22,7 +22,7 @@
         <ion-tab tabTitle={{OTR}} [root]="OTRPage" tabsHideOnSubPages="true" [rootParams]="navparams"></ion-tab>
         <ion-tab tabTitle={{RMG}} [root]="RMGPage" tabsHideOnSubPages="true" [rootParams]="navparams"></ion-tab>
         </ion-tabs>
-  <ion-list id="astroliteMobile-list11">
+  <!-- <ion-list id="astroliteMobile-list11">
     <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
       Item
     </ion-item-divider>
@@ -158,5 +158,5 @@
     <button id="astroliteMobile-button38" ion-button color="positive" full small>
       All Rights are Reseved
     </button>
-  </form>
+  </form> -->
 </ion-content>
