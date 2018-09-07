@@ -111,9 +111,9 @@
 </ion-row>
 <ion-row>
 
-<dx-button class="buttonClass2" [disabled]="!customerForm.valid" [text]="applyButtonOptions.text" [type]="submit" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+<dx-button class="buttonClass2" [disabled]="!horoscopeForm.valid" text="Save" type="submit" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
 
-<dx-button class="buttonClass1" [text]="deleteButtonOptions.text" [type]="deleteButtonOptions.type" (onClick)="deleteButtonOptions.onClick()" style="margin-left:55px;" ></dx-button>
+<dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="deleteButtonOptions.onClick()" style="margin-left:55px;" ></dx-button>
  
 </ion-row>
 </form>
