@@ -4,160 +4,252 @@
       <ion-icon name="menu"></ion-icon>
     </button>
     <ion-title>
+      </ion-title>
       <ion-row>
       <ion-col>
       <img src="assets/img/logo.png"/>
     </ion-col>
    
       <ion-col>
-         
+          <ion-buttons end>
+          <button ion-button small solid color="primary">Log in</button>
+          </ion-buttons>
         </ion-col>
     </ion-row>
-    </ion-title>
-    <ion-buttons end>
-      <button ion-button icon-only solid>
-        <ion-icon name="notifications"></ion-icon>
-      </button>
-    </ion-buttons>
-  </ion-navbar>
-</ion-header>
-<ion-content padding id="page1" style="background-color:#FCFCFC;">
     
-  <ion-list id="astroliteMobile-list11">
-    <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
-      Item
-    </ion-item-divider>
-  </ion-list>
-  <ion-card id="astroliteMobile-card211" class="row">
-    <ion-list>
-      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div>
-      <ion-item id="astroliteMobile-list-item-container12">
-        <div id="astroliteMobile-markdown15" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
-          </p>
-        </div>
-      </ion-item>
-      <ion-item id="astroliteMobile-list-item-container13">
-        <div id="astroliteMobile-markdown16" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
-          </p>
-        </div>
-      </ion-item>
+      </ion-navbar>
+</ion-header>
+<ion-content  id="page1" style="background-color:#FCFCFC;">
+         <ion-card id="astrolite-card211"no-padding>
+     <ion-list>
+         <div>
+     <img src="assets/img/home_banner.jpg" alt="banner">
+   </div>
+     </ion-list>
+   </ion-card>
+
+ <ion-list id="astroliteMobile-list11">
+   <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
+   Welcome to Astrolite
+   </ion-item-divider>
+ </ion-list>
+ <ion-row>
+   <ion-col col-12 col-sm>
+ <ion-card id="astroliteMobile-card211">
+   <ion-list>
+     <ion-item-divider color="light" id="astroliteMobile-list-item-divider24">
+       Horoscope 
+     </ion-item-divider>
+     <ion-item>
+       <ion-label floating>Name</ion-label>
+       <ion-input type="text"></ion-input>
+     </ion-item>
+   
+     <ion-item>
+       <ion-label floating>Gender</ion-label>
+       <ion-input type="password"></ion-input>
+     </ion-item>
+     <button ion-button type="submit" center>Add Todo</button>
+   </ion-list>
+ </ion-card>
+</ion-col>
+<ion-col>
+ <ion-card id="astroliteMobile-card211">
+   <ion-list>
+     <ion-item-divider color="light" id="astroliteMobile-list-item-divider24">
+       Horoscope 
+     </ion-item-divider>
+     <ion-item>
+       <ion-label floating>Name</ion-label>
+       <ion-input type="text"></ion-input>
+     </ion-item>
+   
+     <ion-item>
+       <ion-label floating>Gender</ion-label>
+       <ion-input type="password"></ion-input>
+     </ion-item>
+     <ion-item>
+     <button ion-button type="submit">Add Todo</button>
+    </ion-item>
     </ion-list>
-  </ion-card>
-  <ion-list id="astroliteMobile-list14">
-    <ion-item-divider color="light" id="astroliteMobile-list-item-divider24">
-      Item
-    </ion-item-divider>
-  </ion-list>
-  <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-    <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-  </div>
-  <ion-card id="astroliteMobile-card217" class="row">
-    <ion-list>
-      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-      </div>
-      <ion-item id="astroliteMobile-list-item-container15">
-        <div id="astroliteMobile-markdown18" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
-          </p>
-        </div>
-      </ion-item>
-      <ion-item id="astroliteMobile-list-item-container16">
-        <div id="astroliteMobile-markdown19" class="show-list-numbers-and-dots">
-          <p style="margin-top:0px;color:#000000;">
-            Some friendly
-            <strong>
-              markdown
-            </strong>
-          </p>
-        </div>
-      </ion-item>
-    </ion-list>
-  </ion-card>
-  <button id="astroliteMobile-button23" ion-button outline color="calm" block on-click="goToMatchMaking()">
-    <ion-icon name="people"></ion-icon>
-    &nbsp Match Making
-  </button>
-  <button id="astroliteMobile-button6" ion-button outline color="calm" block on-click="goToMatchResult()">
-    <ion-icon name="moon"></ion-icon>
-    &nbsp Horoscope
-  </button>
-  <form id="astroliteMobile-form2">
-    <ion-card id="astroliteMobile-card23">
-      <ion-list>
-        <ion-item-divider color="light" id="astroliteMobile-list-item-divider5" class="calm">
-          Panchang
-        </ion-item-divider>
-        <ion-item color="none" id="astroliteMobile-list-item19">
-          Date:
-          <b>
-            01-08-2018
-          </b>
-          Place:
-          <b>
-            Mangalore
-          </b>
-          <br />
-          <br /> Thithi:
-          <b>
-            Krishna Chathurthi
-          </b>
-          <br />
-          <br /> Nakshatra :
-          <b>
-            Ashwini
-          </b>
-          <br />
-          <br /> Day :
-          <b>
-            Budavara
-          </b>
-          <br />
-          <br /> Sunrise :
-          <b>
-            05:45:11
-          </b>
-          Sunset :
-          <b>
-            6:11:22
-          </b>
-        </ion-item>
-        <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
-          <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
-        </div>
-      </ion-list>
-    </ion-card>
-    <ion-list id="astroliteMobile-list6">
-      <ion-item-divider color="light" id="astroliteMobile-list-item-divider12" class="calm">
-        Professional Astrology Software
-      </ion-item-divider>
-      <ion-item color="none" on-click="goToFullHoroscope()" id="astroliteMobile-list-item9">
-        Full Horosocope
-        <ion-icon name="more" item-right></ion-icon>
-      </ion-item>
-      <ion-item color="none" on-click="goToMediumHoroscope()" id="astroliteMobile-list-item10" class="col">
-        Medium Horosocope
-        <ion-icon name="more" item-right></ion-icon>
-      </ion-item>
-    </ion-list>
-    <button id="astroliteMobile-button38" ion-button color="positive" full small>
-      All Rights are Reseved
-    </button>
-  </form>
+ </ion-card>
+   </ion-col>
+ <ion-col>
+   <ion-card id="astroliteMobile-card23">
+     <ion-list>
+       <ion-item-divider color="light" id="astroliteMobile-list-item-divider5" class="calm">
+         Panchang
+       </ion-item-divider>
+       <ion-item color="none" id="astroliteMobile-list-item19">
+         Date:
+         <b>
+           01-08-2018
+         </b>
+         Place:
+         <b>
+           Mangalore
+         </b>
+         <br />
+         <br /> Thithi:
+         <b>
+           Krishna Chathurthi
+         </b>
+         <br />
+         <br /> Nakshatra :
+         <b>
+           Ashwini
+         </b>
+         <br />
+         <br /> Day :
+         <b>
+           Budavara
+         </b>
+         <br />
+         <br /> Sunrise :
+         <b>
+           05:45:11
+         </b>
+         Sunset :
+         <b>
+           6:11:22
+         </b>
+       </ion-item>
+       
+     </ion-list>
+   </ion-card>
+     </ion-col>
+ </ion-row>
+ <ion-list id="astroliteMobile-list14">
+   <ion-item-divider color="light" id="astroliteMobile-list-item-divider24">
+     Item
+   </ion-item-divider>
+ </ion-list>
+ <ion-row>
+     <ion-col>
+         
+   <ion-card id="astroliteMobile-card211">
+       <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
+           Astamangala
+           </ion-item-divider>
+     <form id="astamangala-form11">
+       <ion-item id="astamangala-input33">
+         <ion-label>
+           Date
+         </ion-label>
+         <ion-input type="date" placeholder=""></ion-input>
+       </ion-item>
+       <ion-item id="astamangala-input35">
+         <ion-label>
+           Time
+         </ion-label>
+         <ion-input type="time" placeholder=""></ion-input>
+       </ion-item>
+       <ion-item id="astamangala-input34">
+         <ion-label>
+           Place
+         </ion-label>
+         <ion-input type="text" placeholder=""></ion-input>
+       </ion-item>
+       <ion-item id="astamangala-select1">
+         <ion-label>
+           Select
+         </ion-label>
+         <ion-select name="">
+           <ion-option>
+             Standard Time
+           </ion-option>
+           <ion-option>
+             Summer Time
+           </ion-option>
+           <ion-option>
+             Double Summer Time
+           </ion-option>
+           <ion-option>
+             War Time
+           </ion-option>
+         </ion-select>
+       </ion-item>
+      
+       </form>
+     <button id="astamangala-button21" ion-button color="calm">
+       Submit
+     </button>
+   </ion-card>
+ </ion-col>
+ <ion-col>
+     <ion-card>
+         <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
+             Our Professional Astrology Software
+             </ion-item-divider>
+                 <ion-list>
+           <button ion-item>
+             <ion-icon name="cart" item-start></ion-icon>
+             Astrolite –All-in-One
+           </button>
+       
+           <button ion-item>
+             <ion-icon name="medical" item-start></ion-icon>
+             Astrolite-Mini
+           </button>
+       
+           <button ion-item>
+             <ion-icon name="cafe" item-start></ion-icon>
+             Astrolite-Gold - Android
+           </button>
+       
+           <button ion-item>
+             <ion-icon name="paw" item-start></ion-icon>
+             Astrolite-Silver - Android
+           </button>
+       
+           <button ion-item>
+             <ion-icon name="beer" item-start></ion-icon>
+             Online Prepaid A/c
+           </button>                               
+         </ion-list>
+       </ion-card>
+   </ion-col>
+   <ion-col>
+     <ion-card>
+         <ion-item-divider color="light" id="astroliteMobile-list-item-divider22">
+             Wallet
+             </ion-item-divider>
+     
+       <ion-list>
+         <button ion-item>
+           <ion-icon name="cart" item-start></ion-icon>
+           Shopping
+         </button>
+     
+         <button ion-item>
+           <ion-icon name="medical" item-start></ion-icon>
+           Hospital
+         </button>
+     
+         <button ion-item>
+           <ion-icon name="cafe" item-start></ion-icon>
+           Cafe
+         </button>
+     
+         <button ion-item>
+           <ion-icon name="paw" item-start></ion-icon>
+           Dog Park
+         </button>
+     
+         <button ion-item>
+           <ion-icon name="beer" item-start></ion-icon>
+           Pub
+         </button>
+     
+         
+     
+       </ion-list>
+     </ion-card>
+       </ion-col>
+   </ion-row>
+  
+   <button id="astroliteMobile-button38" ion-button color="positive" full small>
+     All Rights are Reseved
+   </button>
+ 
 </ion-content>
