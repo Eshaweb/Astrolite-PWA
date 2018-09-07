@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Payment Gateway
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page12">
+  <ion-card id="paymentGateway-card215">
+    <ion-list>
+      <form id="paymentGateway-form8">
+        <ion-item-divider color="light" id="paymentGateway-list-item-divider11">
+          Credit / Debit Card Details
+        </ion-item-divider>
+        <ion-item id="paymentGateway-input25">
+          <ion-label stacked>
+            Enter Card Details
+          </ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item id="paymentGateway-input26">
+          <ion-label>
+            Expiry Date
+          </ion-label>
+          <ion-input type="month" placeholder=""></ion-input>
+        </ion-item>
+        <ion-item id="paymentGateway-input27">
+          <ion-label>
+            CVV
+          </ion-label>
+          <ion-input type="number" placeholder=""></ion-input>
+        </ion-item>
+      </form>
+      <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
+        <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
+      </div>
+    </ion-list>
+  </ion-card>
+  <button id="paymentGateway-button18" ion-button color="calm" block on-click="goToPaymentSuccess()">
+    Submit
+  </button>
+</ion-content>

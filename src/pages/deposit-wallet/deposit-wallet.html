@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Deposit Wallet
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page23">
+  <form [formGroup]="depositToWalletForm">
+    <ion-item-divider color="light">Add Amount To Wallet</ion-item-divider>
+    <br>
+<ion-row>
+  <div class="dx-field-label">Amount</div>
+  <div class="dx-field-value" style="width: 100%">
+      <dx-number-box formControlName="amount" (keyup)="onAmount($event.target.value)" minlength="2"></dx-number-box>
+      <p style="color: red">{{amountMessage}}</p>
+</div>
+</ion-row>
+<ion-row *ngIf="showError">
+  <p style="color: red">Amount should be in the range Rs.50-Rs.20000</p>
+</ion-row>
+<ion-row *ngIf="walletAmount!=null">
+  <ion-card>
+    <ion-note item-start>
+        <p style="color: red">WalletAmount: {{walletAmount| number: '1.0-0'}}</p>
+        <p style="color: red">BonusAmount: {{bonusAmount| number: '1.0-0'}}</p>
+    </ion-note>
+  </ion-card>
+</ion-row>
+<ion-row>
+ 
+  <dx-button class="buttonClass2" [disabled]="!depositToWalletForm.valid" text="Add" type="default" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+   
+</ion-row>
+  </form>
+  <ion-row *ngIf='paymentModes'>
+    <ion-col>
+      <div class="dx-field-label">Payment Modes</div>
+      <div class="dx-field-value" style="width: 100%">
+          <dx-select-box
+              [items]="paymentModes"
+              displayExpr="Text"
+              valueExpr="Id"
+              [searchEnabled]="true">
+            </dx-select-box>
+      </div>
+      <p style="color: red">{{statusMessage}}</p>
+  </ion-col>
+  </ion-row>
+</ion-content>

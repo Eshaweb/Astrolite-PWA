@@ -1,0 +1,24 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>
+      Payment Details
+    </ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding id="page11">
+  <ion-list id="paymentDetails-list9">
+    <ion-item color="none" on-click="goToPaymentSuccess()" id="paymentDetails-list-item24">
+      Pay using Astrolite Wallet
+      <ion-note item-right></ion-note>
+    </ion-item>
+    <ion-item color="none" id="paymentDetails-list-item25">
+      Pay using Payment Gateway
+    </ion-item>
+  </ion-list>
+  <button id="paymentDetails-button17" ion-button color="calm" block on-click="goToPaymentGateway()">
+    Go
+  </button>
+</ion-content>
