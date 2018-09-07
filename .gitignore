@@ -8,6 +8,26 @@
 # Java class files
 *.class
 
+#npm-debug.log
+
+.idea/
+.ionic/
+.sourcemaps/
+.sass-cache/
+.tmp/
+.versions/
+coverage/
+dist/
+node_modules/
+tmp/
+temp/
+platforms/
+plugins/
+plugins/android.json
+plugins/ios.json
+www/
+$RECYCLE.BIN/
+
 # Generated files
 bin/
 gen/
