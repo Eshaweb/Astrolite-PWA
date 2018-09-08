@@ -51,19 +51,22 @@
     <div class="dx-field-label">Name</div>
     <div class="dx-field-value" style="width: 100%">
         <dx-text-box id="txtName" formControlName="name" placeholder="Enter Name here..." showClearButton="true"></dx-text-box>
-    </div>
+        <p style="color: red">{{nameMessage}}</p>
+      </div>
 </ion-col>
 <ion-col col-12 col-sm>
     <div class="dx-field-label">Father Name</div>
     <div class="dx-field-value" style="width: 100%">
         <dx-text-box id="txtfname" formControlName="fathername" placeholder="Enter Father Name here..." showClearButton="true"></dx-text-box>
-    </div>
+        <p style="color: red">{{fathernameMessage}}</p>
+      </div>
 </ion-col>
 <ion-col col-12 col-sm>
   <div class="dx-field-label">Mother Name</div>
   <div class="dx-field-value" style="width: 100%">
       <dx-text-box id="txtmname" formControlName="mothername" placeholder="Enter Mother Name here..." showClearButton="true"></dx-text-box>
-  </div>
+      <p style="color: red">{{mothernameMessage}}</p>
+    </div>
 </ion-col>
 </ion-row>
 <ion-row>
@@ -109,6 +112,7 @@
               [searchEnabled]="true"
           showClearButton="true"
       ></dx-select-box>
+      <p style="color: red">{{languageMessage}}</p>
 </div> 
 </ion-row>
 <br>

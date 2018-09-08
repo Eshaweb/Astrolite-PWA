@@ -41,7 +41,7 @@
       <div class="dx-field-label">Payment Modes</div>
       <div class="dx-field-value" style="width: 100%">
           <dx-select-box (onValueChanged)="ObjChanged($event)"
-              [items]="paymentModes"
+              [dataSource]="paymentModes"
               displayExpr="Text"
               valueExpr="Id"
               [searchEnabled]="true">

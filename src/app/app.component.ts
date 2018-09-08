@@ -30,6 +30,7 @@ import { NithyaPanchangaMorePage } from '../pages/nithya-panchanga-more/nithya-p
 
 import { AstroliteMobilePage } from '../pages/astrolite-mobile/astrolite-mobile';
 import { HomePage } from '../pages/home/home';
+import { Company, Service } from '../Models/Company';
 
 
 
@@ -39,14 +40,15 @@ import { HomePage } from '../pages/home/home';
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
     rootPage:any = HomePage;
-
-  constructor(platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+    companies: Company[];
+  constructor(service:Service, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
       statusBar.styleDefault();
       splashScreen.hide();
     });
+    this.companies = service.getCompanies();
   }
   goToHome(params){
     if (!params) params = {};

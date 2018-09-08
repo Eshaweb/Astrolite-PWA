@@ -3,6 +3,7 @@ import { NavController } from 'ionic-angular';
 import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/forms';
 import { UIService } from '../../Services/UIService/ui.service';
 import { SmartHttpClient, IRequestOptions } from '../../Services/shared/http-client/smart-httpclient.service';
+import DataSource from 'devextreme/data/data_source';
 
 @Component({
   selector: 'page-deposit-wallet',
@@ -61,7 +62,17 @@ export class DepositWalletPage {
     //   body:'any'
     // }
     this.smartHttpClient.Get(endPoint).subscribe((data: any) => {
-      this.paymentModes = data;
+      //this.paymentModes = data;
+      this.paymentModes = new DataSource({
+        store: {
+            type: 'array',
+            data: data,
+            key: "Id"
+        },
+        sort: [
+          { selector: "Text", desc: false }
+        ]
+    });
     });
 
   }

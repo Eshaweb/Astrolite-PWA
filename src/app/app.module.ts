@@ -41,6 +41,7 @@ import { HttpClientModule, HttpClient } from '../../node_modules/@angular/common
 import { LoaderService } from '../Services/shared/loader.service';
 import { HomePage } from '../pages/home/home';
 import { AgmCoreModule } from '../../node_modules/@agm/core';
+import { Service } from '../Models/Company';
 
 @NgModule({
   declarations: [
@@ -113,7 +114,7 @@ import { AgmCoreModule } from '../../node_modules/@agm/core';
     LastTransactionPage,
     DeliveryAddressPage,HomePage
   ],
-  providers: [UIHelperService,UIService,SmartHttpClient,LoaderService,
+  providers: [UIHelperService,UIService,SmartHttpClient,LoaderService,Service,
     {
       provide: SmartHttpClient,
       useFactory: applicationHttpClientCreator,
