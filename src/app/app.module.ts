@@ -40,6 +40,7 @@ import { SmartHttpClient, applicationHttpClientCreator } from '../Services/share
 import { HttpClientModule, HttpClient } from '../../node_modules/@angular/common/http';
 import { LoaderService } from '../Services/shared/loader.service';
 import { HomePage } from '../pages/home/home';
+import { AgmCoreModule } from '../../node_modules/@agm/core';
 
 @NgModule({
   declarations: [
@@ -74,6 +75,10 @@ import { HomePage } from '../pages/home/home';
     HomePage
   ],
   imports: [
+    AgmCoreModule.forRoot({
+      apiKey: "AIzaSyD68pTd0CmqTXSqPHFpLrPWkiClqPBIpLQ",
+      libraries: ["places"]
+  }),
     BrowserModule,DevExtremeModule,HttpClientModule,
     IonicModule.forRoot(MyApp)
   ],

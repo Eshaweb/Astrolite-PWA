@@ -56,13 +56,13 @@
 <ion-col col-12 col-sm>
     <div class="dx-field-label">Father Name</div>
     <div class="dx-field-value" style="width: 100%">
-        <dx-text-box id="txtfname" formControlName="fname" placeholder="Enter Father Name here..." showClearButton="true"></dx-text-box>
+        <dx-text-box id="txtfname" formControlName="fathername" placeholder="Enter Father Name here..." showClearButton="true"></dx-text-box>
     </div>
 </ion-col>
 <ion-col col-12 col-sm>
   <div class="dx-field-label">Mother Name</div>
   <div class="dx-field-value" style="width: 100%">
-      <dx-text-box id="txtmname" formControlName="mname" placeholder="Enter Mother Name here..." showClearButton="true"></dx-text-box>
+      <dx-text-box id="txtmname" formControlName="mothername" placeholder="Enter Mother Name here..." showClearButton="true"></dx-text-box>
   </div>
 </ion-col>
 </ion-row>
@@ -84,24 +84,26 @@
               type="datetime">
           </dx-date-box>
       </div>
-      <p style="color: red">{{dateMessage}}</p>
+      <p style="color: red">{{BdateMessage}}</p>
 </ion-col>
 </ion-row>
 <ion-row>
   <div class="dx-field-label">Birth Place</div>
         <div class="dx-field-value" style="width: 100%">
-            <dx-text-box id="txtHome" formControlName="bplace" placeholder="Enter Name here..." showClearButton="true"></dx-text-box>
-            <p style="color: red">{{nameMessage}}</p>
-            <p>Latitude: {{latitude}}</p><p>Longitude: {{longitude}}</p>
-            <p>TimeZoneName: {{timeZoneName}}</p><p>TimeZoneId: {{timeZoneId}}</p>
-        </div>
+            <dx-text-box id="txtHome" formControlName="bplace" showClearButton="true" (mouseup)="OnKeyUp($event.target.value)"></dx-text-box>
+            <p style="color: red">{{bplaceMessage}}</p>
+          <ion-card *ngIf="timeZoneName">
+            <p style="color: red">Latitude: {{latitude}}</p><p style="color: red">Longitude: {{longitude}}</p>
+            <p style="color: red">TimeZoneName: {{timeZoneName}}</p><p style="color: red">TimeZoneId: {{timeZoneId}}</p>
+          </ion-card>
+          </div>
 </ion-row>
 <ion-row>
   <div class="dx-field-label">Select Language</div>
   <div class="dx-field-value" style="width: 100%">
       <dx-select-box formControlName="language" 
-          [items]="customerTypes"
-          placeholder="Choose Type"
+          [items]="lanuages"
+          placeholder="Choose"
           displayExpr="Text"
               valueExpr="Id"
               [searchEnabled]="true"
@@ -109,11 +111,12 @@
       ></dx-select-box>
 </div> 
 </ion-row>
+<br>
 <ion-row>
 
-<dx-button class="buttonClass2" [disabled]="!horoscopeForm.valid" text="Save" type="submit" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+<dx-button class="buttonClass2" [disabled]="!horoscopeForm.valid" text="Go" type="submit" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
 
-<dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="deleteButtonOptions.onClick()" style="margin-left:55px;" ></dx-button>
+<dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="Click()" style="margin-left:55px;" ></dx-button>
  
 </ion-row>
 </form>

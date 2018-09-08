@@ -78,7 +78,15 @@ export class SmartHttpClient {
   public Delete<T>(endPoint: string, options?: IRequestOptions): Observable<T> {
     return this.http.delete<T>(this.api + endPoint, options);
   }
-
+  getTimezone(lat, long) {  
+    var apiKey = 'AIzaSyD68pTd0CmqTXSqPHFpLrPWkiClqPBIpLQ'
+    //https://maps.googleapis.com/maps/api/timezone/json?location=38.908133,-77.047119&timestamp=1458000000&key=AIzaSyD68pTd0CmqTXSqPHFpLrPWkiClqPBIpLQ
+    var url = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + lat + ',' + long + '&timestamp=1458000000&key=' + apiKey 
+    // var response = GoogleAppsScript.URL_Fetch.UrlFetchApp.fetch(url);
+    // var data = JSON.parse(response.getContentText());
+    // return data["timeZoneName"];
+    return this.http.get(url);
+  }
 
 
   private showLoader(): void {

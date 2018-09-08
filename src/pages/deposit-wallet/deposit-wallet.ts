@@ -51,8 +51,6 @@ export class DepositWalletPage {
   };
   onClick() {
     var endPoint = "Sales/GetPayCodes";
-    // var endPoint = "products";
-    
     // const options:IRequestOptions={
     //   headers: '',
     //   observe:'body',
@@ -62,20 +60,16 @@ export class DepositWalletPage {
     //   withCredentials:false,
     //   body:'any'
     // }
-    // this.smartHttpClient.GetPayCodes().subscribe((data: any) => {
-    //   this.paymentModes = data;
-    // });
-    // this.smartHttpClient.Get(endPoint).subscribe((data: any) => {
-    //   this.paymentModes = data;
-    // });
+    this.smartHttpClient.Get(endPoint).subscribe((data: any) => {
+      this.paymentModes = data;
+    });
 
-    this.paymentModes=[{"Id":"C","Text":"Cash"},
-                       {"Id":"Q","Text":"Cheque"},
-                       {"Id":"P","Text":"Credit"},
-                       {"Id":"L","Text":"Net Banking"}];
   }
-  ObjChanged(event){
-
+  ObjChanged(event) {
+    const paycode = {
+      Code: event.value,
+      Amount: this.depositToWalletForm.controls['amount'].value
+    }
   }
   onAmount(value) {
     if (value < 50 || value > 20000) {
