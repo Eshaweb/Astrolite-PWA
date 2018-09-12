@@ -45,22 +45,22 @@ export class HoroscopePage {
     });
 });
     this.horoscopeForm=this.formbuilder.group({
-      name: ['shailesh', [Validators.required,Validators.minLength(6)]],
-      fathername: ['Shailu', [Validators.required, Validators.minLength(3)]],
-      mothername: ['President', [Validators.required, Validators.minLength(6)]],
-      gothra: ['',[Validators.required]],
+      name: ['Shamanth', [Validators.required,Validators.minLength(4)]],
+      fathername: ['Rajesh'],
+      mothername: ['Leelavathi'],
+      gothra: ['Vasista'],
       Bdate: ['', [Validators.required]],
       bplace:['', [Validators.required]],
       language:['', [Validators.required]]
     });
     const nameContrl = this.horoscopeForm.get('name');
     nameContrl.valueChanges.subscribe(value => this.setErrorMessage(nameContrl));
-    const fathernameContrl = this.horoscopeForm.get('fathername');
-    fathernameContrl.valueChanges.subscribe(value => this.setErrorMessage(fathernameContrl));
-    const mothernameContrl = this.horoscopeForm.get('mothername');
-    mothernameContrl.valueChanges.subscribe(value => this.setErrorMessage(mothernameContrl));
-    const gothraContrl = this.horoscopeForm.get('gothra');
-    gothraContrl.valueChanges.subscribe(value => this.setErrorMessage(gothraContrl));
+    // const fathernameContrl = this.horoscopeForm.get('fathername');
+    // fathernameContrl.valueChanges.subscribe(value => this.setErrorMessage(fathernameContrl));
+    // const mothernameContrl = this.horoscopeForm.get('mothername');
+    // mothernameContrl.valueChanges.subscribe(value => this.setErrorMessage(mothernameContrl));
+    // const gothraContrl = this.horoscopeForm.get('gothra');
+    // gothraContrl.valueChanges.subscribe(value => this.setErrorMessage(gothraContrl));
     const BdateContrl = this.horoscopeForm.get('Bdate');
     BdateContrl.valueChanges.subscribe(value => this.setErrorMessage(BdateContrl));
     const bplaceContrl = this.horoscopeForm.get('bplace');
@@ -82,15 +82,15 @@ export class HoroscopePage {
         this.nameMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
       //maps the error message from validationMessages array. 
       }
-      else if (control === 'fathername') {
-        this.fathernameMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
-      }
-      else if (control === 'mothername') {
-        this.mothernameMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
-      }
-      else if (control === 'gothra') {
-        this.gothraMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
-      }
+      // else if (control === 'fathername') {
+      //   this.fathernameMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
+      // }
+      // else if (control === 'mothername') {
+      //   this.mothernameMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
+      // }
+      // else if (control === 'gothra') {
+      //   this.gothraMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
+      // }
       else if (control === 'Bdate') {
         this.BdateMessage = Object.keys(c.errors).map(key => this.validationMessages[control + '_' + key]).join(' ');
       }
@@ -103,23 +103,23 @@ export class HoroscopePage {
     }
   }
   private validationMessages = { //used in above method.
-    name_required: '*Enter mobile number',
-    name_minlength: '*Enter 10 Digit Mobile Number',
+    name_required: '*Enter Name',
+    name_minlength: '*Minimum length is 4',
 
-    fathername_required: '*Enter Amount',
-    fathername_minlength: '*Enter 10 Digit Mobile Number',
+    // fathername_required: '*Enter Father Name',
+    // fathername_minlength: '*Minimum length is 4',
 
-    mothername_required: '*Enter mobile number',
-    mothername_minlength: '*Enter 10 Digit Mobile Number',
+    // mothername_required: '*Enter Mother Name',
+    // mothername_minlength: '*Minimum length is 4',
 
-    gothra_required: '*Enter mobile number',
-    gothra_minlength: '*Enter 10 Digit Mobile Number',
+    // gothra_required: '*Enter Gothra',
+    // gothra_minlength: '*Minimum length is 4',
 
-    Bdate_required: '*Enter mobile number',
+    Bdate_required: '*Select Date of Birth',
 
-    bplace_required: '*Enter mobile number',
+    bplace_required: '*Enter Birth Place',
 
-    language_required: '*Enter mobile number',
+    language_required: '*Select Language',
 
   };
   getTimezone(lat, long) { 

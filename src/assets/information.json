@@ -1,0 +1,61 @@
+{
+    "items": [
+        {
+            "name": "Home"
+        },
+        {
+            "name": "Services",
+            "children": [
+                {
+                    "name": "Horoscope"
+                },
+                {
+                    "name": "Match Making"
+                },
+                {
+                    "name": "Astamangala"
+                }
+            ]
+        },
+        {
+            "name": "Product",
+            "children": [
+                {
+                    "name": "HoroScope Software Mobile"
+                },
+                {
+                    "name": "Horoscope Software Desktop"
+                }
+            ]
+        },
+        {
+            "name":"Nithya Panchanga"
+        },
+        {
+            "name":"Wallet",
+            "children":[
+                {
+                    "name":"Deposit to wallet"
+                },
+                {
+                    "name":"Deposit History"
+                },
+                {
+                    "name":"Wallet Statement"
+                },
+                {
+                    "name":"Last Transaction"
+                },
+                {
+                    "name":"Refer Friend & Earn"
+                }
+            ]
+        },
+        {
+            "name":"Registration"
+        },
+        {
+            "name":"Login"
+        }
+    ]
+}

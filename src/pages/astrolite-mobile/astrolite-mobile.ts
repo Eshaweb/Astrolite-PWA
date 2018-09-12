@@ -8,6 +8,7 @@ import { PaymentSuccessPage } from '../payment-success/payment-success';
 import { MediumHoroscopePage } from '../medium-horoscope/medium-horoscope';
 import { MatchMakingPage } from '../match-making/match-making';
 import { MatchResultPage } from '../match-result/match-result';
+import { FormGroup, Validators, FormBuilder } from '@angular/forms';
 
 
 @Component({
@@ -15,9 +16,33 @@ import { MatchResultPage } from '../match-result/match-result';
   templateUrl: 'astrolite-mobile.html'
 })
 export class AstroliteMobilePage {
+  horoscopeForm: FormGroup;
+  MatchMakingForm: FormGroup;
+  femaleMatchMakingForm: FormGroup;
   
-  constructor(public navCtrl: NavController) {
-    
+  constructor(public formbuilder: FormBuilder, public navCtrl: NavController) {
+    this.horoscopeForm=this.formbuilder.group({
+      name: ['Shamanth', [Validators.required,Validators.minLength(4)]],
+      fathername: ['Rajesh', [Validators.required, Validators.minLength(4)]],
+      mothername: ['Leelavathi', [Validators.required, Validators.minLength(4)]],
+      gothra: ['Vasista',[Validators.required, Validators.minLength(4)]],
+      Bdate: ['', [Validators.required]],
+      bplace:['', [Validators.required]],
+      language:['', [Validators.required]]
+    });
+    this.MatchMakingForm=this.formbuilder.group({
+      maleName: ['Shamanth', [Validators.required,Validators.minLength(4)]],
+      MaleBdate: ['', [Validators.required]],
+      MaleBplace:['', [Validators.required]],
+      femaleName: ['Shamanth', [Validators.required,Validators.minLength(4)]],
+      FemaleBdate: ['', [Validators.required]],
+      FemaleBplace:['', [Validators.required]]
+    });
+    // this.femaleMatchMakingForm=this.formbuilder.group({
+    //   femaleName: ['Shamanth', [Validators.required,Validators.minLength(4)]],
+    //   FemaleBdate: ['', [Validators.required]],
+    //   FemaleBplace:['', [Validators.required]]
+    // });
   }
   goToFullHoroscope(params){
     if (!params) params = {};

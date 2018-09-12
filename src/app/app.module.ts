@@ -42,6 +42,9 @@ import { LoaderService } from '../Services/shared/loader.service';
 import { HomePage } from '../pages/home/home';
 import { AgmCoreModule } from '../../node_modules/@agm/core';
 import { Service } from '../Models/Company';
+import { RegistrationPage } from '../pages/registration/registration';
+import { SalesService } from '../Services/sales/sales.service';
+import { LoginPage } from '../pages/login/login';
 
 @NgModule({
   declarations: [
@@ -73,7 +76,7 @@ import { Service } from '../Models/Company';
     WalletStatementPage,
     LastTransactionPage,
     DeliveryAddressPage,
-    HomePage
+    HomePage,RegistrationPage,LoginPage
   ],
   imports: [
     AgmCoreModule.forRoot({
@@ -112,9 +115,9 @@ import { Service } from '../Models/Company';
     DepositHistroyPage,
     WalletStatementPage,
     LastTransactionPage,
-    DeliveryAddressPage,HomePage
+    DeliveryAddressPage,HomePage,RegistrationPage,LoginPage
   ],
-  providers: [UIHelperService,UIService,SmartHttpClient,LoaderService,Service,
+  providers: [UIHelperService,UIService,SalesService,SmartHttpClient,LoaderService,Service,
     {
       provide: SmartHttpClient,
       useFactory: applicationHttpClientCreator,

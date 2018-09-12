@@ -1,15 +1,17 @@
-export interface WalletSale{
+export interface SalesModel{
     PartyMastId:string;
     Amount:number;
-    PayCode:PayCode[];
-    ServeTrDet:ServeTrDet[];
+    BillDiscountCode:string;
+    Remarks:string;
+    PayCodes:PayCode[];
+    ServtrDets:ServtrDet[];
 }
 
 export interface PayCode{
     Code:string;//selectbox value
     Amount:number;//useramount
 }
-export interface ServeTrDet{
+export interface ServtrDet{
     ItMastId:string;
     FreeAmount:number;
     ItemAmount:number;

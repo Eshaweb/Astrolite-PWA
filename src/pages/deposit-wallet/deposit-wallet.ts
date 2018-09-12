@@ -4,6 +4,8 @@ import { FormGroup, FormBuilder, Validators, AbstractControl } from '@angular/fo
 import { UIService } from '../../Services/UIService/ui.service';
 import { SmartHttpClient, IRequestOptions } from '../../Services/shared/http-client/smart-httpclient.service';
 import DataSource from 'devextreme/data/data_source';
+import { PayCode, ServtrDet } from '../../Models/Sales/SalesModel';
+import { SalesService } from '../../Services/sales/sales.service';
 
 @Component({
   selector: 'page-deposit-wallet',
@@ -16,14 +18,32 @@ export class DepositWalletPage {
   bonusAmount: number;
   amountMessage: string;
   paymentModes: any;
+  paycode: PayCode[];
+  servtrDets: ServtrDet[];
 
-  constructor(public smartHttpClient: SmartHttpClient, public uiService: UIService, public formbuilder: FormBuilder, public navCtrl: NavController) {
+
+  constructor(public salesService:SalesService,public smartHttpClient: SmartHttpClient, public uiService: UIService, public formbuilder: FormBuilder, public navCtrl: NavController) {
+    var endPoint = "Sales/GetPayCodes";
     this.depositToWalletForm = this.formbuilder.group({
       // amount: [null, [Validators.required, Validators.minLength(1),Validators.pattern("^[a-z0-9_-]{8,15}$"),Validators.min(50),Validators.max(20000)]],
       amount: [null, [Validators.required, Validators.pattern("[50<>20000]=?|="), Validators.min(50), Validators.max(20000)]],
     });
     const amountContrl = this.depositToWalletForm.get('amount');
     amountContrl.valueChanges.subscribe(value => this.setErrorMessage(amountContrl));
+  
+    this.smartHttpClient.Get(endPoint).subscribe((data: any) => {
+      this.paymentModes = new DataSource({
+        store: {
+            type: 'array',
+            data: data,
+            key: "Id"
+        },
+        sort: [
+          { selector: "Text", desc: false }
+        ]
+    });
+    });
+  
   }
   setErrorMessage(c: AbstractControl): void {
     this.amountMessage = '';
@@ -50,37 +70,29 @@ export class DepositWalletPage {
     confirm_Password_minlength: 'Minimum length should be 3',
 
   };
+
   onClick() {
-    var endPoint = "Sales/GetPayCodes";
-    // const options:IRequestOptions={
-    //   headers: '',
-    //   observe:'body',
-    //   params:'HttpParams',
-    //   reportProgress:true,
-    //   responseType:'json',
-    //   withCredentials:false,
-    //   body:'any'
-    // }
-    this.smartHttpClient.Get(endPoint).subscribe((data: any) => {
-      //this.paymentModes = data;
-      this.paymentModes = new DataSource({
-        store: {
-            type: 'array',
-            data: data,
-            key: "Id"
-        },
-        sort: [
-          { selector: "Text", desc: false }
-        ]
-    });
-    });
+     this.servtrDets=[{
+      ItMastId:"#WALLET",
+      FreeAmount:this.bonusAmount,
+      ItemAmount:this.depositToWalletForm.controls['amount'].value 
+     }]
+     const SalesModel={
+      PartyMastId:"1",
+      Amount:76,
+      BillDiscountCode:"",
+      Remarks:"xxx",
+      PayCodes:this.paycode,
+      ServtrDets:this.servtrDets
+     }
+    this.salesService.Sale(SalesModel);
 
   }
   ObjChanged(event) {
-    const paycode = {
+    this.paycode = [{
       Code: event.value,
       Amount: this.depositToWalletForm.controls['amount'].value
-    }
+    }]
   }
   onAmount(value) {
     if (value < 50 || value > 20000) {

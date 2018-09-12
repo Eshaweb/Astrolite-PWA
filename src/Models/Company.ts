@@ -1,4 +1,5 @@
 import { Injectable } from "../../node_modules/@angular/core";
+import { HttpClient } from "@angular/common/http";
 
 export interface Company {
     ID: number;
@@ -61,7 +62,12 @@ let companies: Company[] = [{
 
 @Injectable()
 export class Service {
+    constructor(private http:HttpClient){
+    }
     getCompanies(): Company[] {
         return companies;
+    }
+    getxx(){
+return this.http.get('assets/information.json');
     }
 }

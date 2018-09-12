@@ -1,9 +1,13 @@
-import {HttpClient, HttpErrorResponse, HttpHeaders, HttpParams} from '@angular/common/http';
-import {Injectable} from '@angular/core';
-import {Observable} from 'rxjs';
-import { finalize } from 'rxjs/operators'
+import { HttpClient, HttpErrorResponse, HttpHeaders, HttpParams } from '@angular/common/http';
+import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { finalize, tap } from 'rxjs/operators'
 import { LoaderService } from '../loader.service';
- 
+import { subscribeOn } from 'rxjs/operator/subscribeOn';
+import { SalesResponse } from '../../../Models/Sales/SalesResponse';
+import { Error } from '../../../Models/Error';
+import { map } from 'rxjs/operator/map';
+
 export interface IRequestOptions {
   headers?: HttpHeaders;
   observe?: 'body';
@@ -15,18 +19,19 @@ export interface IRequestOptions {
 }
 
 
-export function applicationHttpClientCreator(http: HttpClient,loaderService: LoaderService) {
-  return new SmartHttpClient(http,loaderService);
+export function applicationHttpClientCreator(http: HttpClient, loaderService: LoaderService) {
+  return new SmartHttpClient(http, loaderService);
 }
 
 @Injectable()
 export class SmartHttpClient {
 
   private api = 'http://astroliteapi.azurewebsites.net/api/';
+  salesResponse: SalesResponse;
   // private api = 'https://www.igniteui.com/api/';
 
   // Extending the HttpClient through the Angular DI.
-  public constructor(public http: HttpClient,private loaderService: LoaderService) {
+  public constructor(public http: HttpClient, private loaderService: LoaderService) {
     // If you don't want to use the extended versions in some cases you can access the public property and use the original one.
     // for ex. this.httpClient.http.get(...)
   }
@@ -40,6 +45,10 @@ export class SmartHttpClient {
   public Get<T>(endPoint: string, options?: IRequestOptions): Observable<T> {
     return this.http.get<T>(this.api + endPoint, options);
   }
+
+
+ error : Error[]
+
   // public GetPayCodes<T>(): Observable<T> {
   //   return this.http.get<T>(this.api + "Sales/GetPayCodes");
   // }
@@ -51,11 +60,24 @@ export class SmartHttpClient {
    * @returns {Observable<T>}
    */
   public Post<T>(endPoint: string, params: Object, options?: IRequestOptions): Observable<T> {
-   this.showLoader();
-    return this.http.post<T>(this.api + endPoint, params, options).pipe( finalize(()=>{
-      this.hideLoader();
-    }))
+    // this.showLoader();
+    // return this.http.post<T>(this.api + endPoint, params, options).pipe( finalize(()=>{
+    //   //this.hideLoader();
+    // }));
+    return this.http.post<T>(this.api + endPoint, params, options).pipe(finalize(() => {
+    })).pipe(tap((data: any) => {
+      // if (this.instanceOfError(data)) {
+      //  alert("hello");
+      // }
+      if(data[0] instanceof Error){
+        alert("hello");
+      }
+    }));
   }
+// instanceOfError(object: any): object is Error {
+//     return 'Type' in object;
+// }
+
 
   /**
    * PUT request
@@ -78,10 +100,10 @@ export class SmartHttpClient {
   public Delete<T>(endPoint: string, options?: IRequestOptions): Observable<T> {
     return this.http.delete<T>(this.api + endPoint, options);
   }
-  getTimezone(lat, long) {  
+  getTimezone(lat, long) {
     var apiKey = 'AIzaSyD68pTd0CmqTXSqPHFpLrPWkiClqPBIpLQ'
     //https://maps.googleapis.com/maps/api/timezone/json?location=38.908133,-77.047119&timestamp=1458000000&key=AIzaSyD68pTd0CmqTXSqPHFpLrPWkiClqPBIpLQ
-    var url = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + lat + ',' + long + '&timestamp=1458000000&key=' + apiKey 
+    var url = 'https://maps.googleapis.com/maps/api/timezone/json?location=' + lat + ',' + long + '&timestamp=1458000000&key=' + apiKey
     // var response = GoogleAppsScript.URL_Fetch.UrlFetchApp.fetch(url);
     // var data = JSON.parse(response.getContentText());
     // return data["timeZoneName"];
@@ -92,11 +114,11 @@ export class SmartHttpClient {
   private showLoader(): void {
     this.loaderService.show();
     console.log('shown');
-}
-private hideLoader(): void {
-  this.loaderService.hide();
-  console.log('hided');
-}
+  }
+  private hideLoader(): void {
+    this.loaderService.hide();
+    console.log('hided');
+  }
 }
 
 

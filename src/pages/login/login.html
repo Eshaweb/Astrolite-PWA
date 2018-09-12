@@ -1,0 +1,54 @@
+<!--
+  Generated template for the LoginPage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+
+  <ion-navbar>
+      <button ion-button menuToggle>
+          <ion-icon name="menu"></ion-icon>
+        </button>
+    <ion-title>Login</ion-title>
+  </ion-navbar>
+
+</ion-header>
+
+
+<ion-content padding>
+  <form [formGroup]="loginForm">
+    <ion-item-divider color="light">Login Details </ion-item-divider>
+    <br>
+<ion-row>
+    <div class="dx-field-label">Mobile No</div>
+    <div class="dx-field-value" style="width: 100%">
+        <!-- <dx-number-box formControlName="mobileno"></dx-number-box> -->
+        <dx-text-box
+        mask="00000-00000"
+        [maskRules]="phoneRules" showClearButton="true"
+        maskInvalidMessage="The phone must have a correct USA phone format"
+        [useMaskedValue]="true" formControlName="mobileno"> </dx-text-box>
+      </div>
+</ion-row>
+<p style="color: darkorange">{{mobilenoMessage}}</p>
+
+<ion-row>
+  <div class="dx-field-label">Password</div>
+  <div class="dx-field-value" style="width: 100%">
+      <dx-text-box formControlName="password" placeholder="Enter Password here..." showClearButton="true"></dx-text-box>
+  </div>
+</ion-row>
+  <p style="color: darkorange">{{passwordMessage}}</p>
+<br/><br/>
+<ion-row>
+ 
+  <dx-button class="buttonClass2" [disabled]="!loginForm.valid" text="Save" type="default" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+
+  <dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="deleteButtonOptions.onClick()" style="margin-left:55px;" ></dx-button>
+   
+</ion-row>
+  </form>
+  <div style="color:red;" *ngIf="loginForm.errors?.notSame"><span>Passwords do not match</span></div>
+</ion-content>
+

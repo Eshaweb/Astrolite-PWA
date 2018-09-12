@@ -14,9 +14,9 @@
       <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
         <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
       </div>
-      <form id="matchMaking-form12">
-        <ion-item-divider color="light" id="matchMaking-list-item-divider17" class="calm"></ion-item-divider>
-        <ion-item id="matchMaking-input10">
+      <form id="matchMaking-form12" [formGroup]="maleMatchMakingForm">
+        <ion-item-divider color="light" id="matchMaking-list-item-divider17" class="calm">Enter Male Details</ion-item-divider>
+        <!-- <ion-item id="matchMaking-input10">
           <ion-label>
             Name
           </ion-label>
@@ -45,7 +45,52 @@
             Time
           </ion-label>
           <ion-input type="time" placeholder=""></ion-input>
-        </ion-item>
+        </ion-item> -->
+
+        <ion-row>
+            <ion-col col-12 col-sm>
+              <div class="dx-field-label">Name</div>
+              <div class="dx-field-value" style="width: 100%">
+                  <dx-text-box id="txtName" formControlName="maleName" placeholder="Enter Male Name here..." showClearButton="true"></dx-text-box>
+                  <p style="color: red">{{maleNameMessage}}</p>
+                </div>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+              <ion-col col-12 col-sm>
+                <div class="dx-field-label">Birth Date and Time*</div>
+                <div class="dx-field-value" style="width: 100%">
+                    <dx-date-box
+                        formControlName="MaleBdate"
+                        [value]="now"
+                        type="datetime">
+                    </dx-date-box>
+                </div>
+                <p style="color: red">{{MaleBdateMessage}}</p>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12 col-sm>
+            <div class="dx-field-label">Birth Place</div>
+                  <div class="dx-field-value" style="width: 100%">
+                      <dx-text-box id="txtHome" formControlName="MaleBplace" showClearButton="true" (mouseup)="OnKeyUp($event.target.value)"></dx-text-box>
+                      <p style="color: red">{{MaleBplaceMessage}}</p>
+                    <ion-card *ngIf="timeZoneName">
+                      <p style="color: red">Latitude: {{latitude}}</p><p style="color: red">Longitude: {{longitude}}</p>
+                      <p style="color: red">TimeZoneName: {{timeZoneName}}</p><p style="color: red">TimeZoneId: {{timeZoneId}}</p>
+                    </ion-card>
+                    </div>
+            </ion-col>
+          </ion-row>
+          <br>
+          <ion-row>
+          
+          <dx-button class="buttonClass2" [disabled]="!maleMatchMakingForm.valid" text="Go" type="default" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+          
+          <dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="Click()" style="margin-left:55px;" ></dx-button>
+           
+          </ion-row>
+          <br/>
       </form>
     </ion-list>
   </ion-card>
@@ -54,9 +99,9 @@
       <div style="width:100%;height:220px;margin:0px 0px;line-height:250px;background-color:#e8ebef;text-align:center;">
         <i class="icon ion-image" style="font-size:64px;color:#888;vertical-align:middle;"></i>
       </div>
-      <form id="matchMaking-form6">
-        <ion-item-divider color="light" id="matchMaking-list-item-divider6" class="calm"></ion-item-divider>
-        <ion-item id="matchMaking-input13">
+      <form id="matchMaking-form6" [formGroup]="femaleMatchMakingForm">
+        <ion-item-divider color="light" id="matchMaking-list-item-divider6" class="calm">Enter Female Details</ion-item-divider>
+        <!-- <ion-item id="matchMaking-input13">
           <ion-label>
             Name
           </ion-label>
@@ -85,7 +130,52 @@
             Time
           </ion-label>
           <ion-input type="time" placeholder=""></ion-input>
-        </ion-item>
+        </ion-item> -->
+
+        <ion-row>
+            <ion-col col-12 col-sm>
+              <div class="dx-field-label">Name</div>
+              <div class="dx-field-value" style="width: 100%">
+                  <dx-text-box id="txtName" formControlName="femaleName" placeholder="Enter Name here..." showClearButton="true"></dx-text-box>
+                  <p style="color: red">{{nameMessage}}</p>
+                </div>
+          </ion-col>
+        </ion-row>
+          <ion-row>
+              <ion-col col-12 col-sm>
+                <div class="dx-field-label">Birth Date and Time*</div>
+                <div class="dx-field-value" style="width: 100%">
+                    <dx-date-box
+                        formControlName="FemaleBdate"
+                        [value]="now"
+                        type="datetime">
+                    </dx-date-box>
+                </div>
+                <p style="color: red">{{FemaleBdateMessage}}</p>
+          </ion-col>
+          </ion-row>
+          <ion-row>
+            <ion-col col-12 col-sm>
+            <div class="dx-field-label">Birth Place</div>
+                  <div class="dx-field-value" style="width: 100%">
+                      <dx-text-box id="txtHome" formControlName="FemaleBplace" showClearButton="true" (mouseup)="OnKeyUp($event.target.value)"></dx-text-box>
+                      <p style="color: red">{{FemaleBplaceMessage}}</p>
+                    <ion-card *ngIf="timeZoneName">
+                      <p style="color: red">Latitude: {{latitude}}</p><p style="color: red">Longitude: {{longitude}}</p>
+                      <p style="color: red">TimeZoneName: {{timeZoneName}}</p><p style="color: red">TimeZoneId: {{timeZoneId}}</p>
+                    </ion-card>
+                    </div>
+            </ion-col>
+          </ion-row>
+          <br>
+          <ion-row>
+          
+          <dx-button class="buttonClass2" [disabled]="!femaleMatchMakingForm.valid" text="Go" type="default" (onClick)="onClick()" style="margin-right:44px;margin-left:55px;"></dx-button>
+          
+          <dx-button class="buttonClass1" text="Cancel" type="submit" (onClick)="Click()" style="margin-left:55px;" ></dx-button>
+           
+          </ion-row>
+          <br/>
       </form>
     </ion-list>
   </ion-card>

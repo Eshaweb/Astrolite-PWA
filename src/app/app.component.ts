@@ -31,6 +31,10 @@ import { NithyaPanchangaMorePage } from '../pages/nithya-panchanga-more/nithya-p
 import { AstroliteMobilePage } from '../pages/astrolite-mobile/astrolite-mobile';
 import { HomePage } from '../pages/home/home';
 import { Company, Service } from '../Models/Company';
+import { HttpClient } from '../../node_modules/@angular/common/http';
+import { HoroscopePage } from '../pages/horoscope/horoscope';
+import { RegistrationPage } from '../pages/registration/registration';
+import { LoginPage } from '../pages/login/login';
 
 
 
@@ -39,9 +43,11 @@ import { Company, Service } from '../Models/Company';
 })
 export class MyApp {
   @ViewChild(Nav) navCtrl: Nav;
-    rootPage:any = HomePage;
-    companies: Company[];
-  constructor(service:Service, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
+  rootPage: any = HomePage;
+  companies: Company[];
+  information: any;
+  yyyy: any;
+  constructor(public http: HttpClient, private service: Service, platform: Platform, statusBar: StatusBar, splashScreen: SplashScreen) {
     platform.ready().then(() => {
       // Okay, so the platform is ready and our plugins are available.
       // Here you can do any higher level native things you might need.
@@ -49,77 +55,137 @@ export class MyApp {
       splashScreen.hide();
     });
     this.companies = service.getCompanies();
+    let localData = this.http.get('assets/information.json');
+    this.service.getxx().subscribe((data) => {
+      this.yyyy = data;
+      this.information = this.yyyy.items;
+    });
+
   }
-  goToHome(params){
+
+  toggleSection(i) {
+    this.information[i].open = !this.information[i].open;
+    if (this.information[i].children == null) {
+      this.information[i].open = false;
+      if (this.information[i].name == "Home") {
+        this.navCtrl.setRoot(HomePage);
+      }
+      else if (this.information[i].name == "NithyaPanchanga") {
+        this.navCtrl.setRoot(NithyaPanchangaPage);
+      }
+      else if (this.information[i].name == "Registration") {
+        this.navCtrl.setRoot(RegistrationPage);
+      }
+      else if (this.information[i].name == "Login") {
+        this.navCtrl.setRoot(LoginPage);
+      }
+    }
+  }
+
+  toggleItem(i, j) {
+    this.information[i].children[j].open = !this.information[i].children[j].open;
+  }
+  goto(value) {
+    var name=value+"Page";
+    // var ppp=name.replace(/\"/g, "");
+   //this.navCtrl.setRoot(name.replace(/\"/g,""));
+    switch(name){
+      case "HoroscopePage":
+      this.navCtrl.push(HoroscopePage);
+      break;
+      case "Match MakingPage":
+      this.navCtrl.push(MatchMakingPage);
+      break;
+      case "AstamangalaPage":
+      this.navCtrl.push(AstamangalaPage);
+      break;
+      case "Deposit to walletPage":
+      this.navCtrl.push(DepositWalletPage);
+      break;
+      case "HoroScopePage":
+      this.navCtrl.push(HoroscopePage);
+      break;
+      case "RegistrationPage":
+      this.navCtrl.push(RegistrationPage);
+      break;
+      case "LoginPage":
+      this.navCtrl.push(LoginPage);
+      default:
+      this.navCtrl.push(HoroscopePage);
+      break;
+    }
+
+  }
+  goToHome(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(HomePage);
-  }goToFullHoroscope(params){
+  } goToFullHoroscope(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(FullHoroscopePage);
-  }goToDeliveryAddress(params){
+  } goToDeliveryAddress(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(DeliveryAddressPage);
-  }goToPaymentDetails(params){
+  } goToPaymentDetails(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(PaymentDetailsPage);
-  }goToPaymentGateway(params){
+  } goToPaymentGateway(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(PaymentGatewayPage);
-  }goToPaymentSuccess(params){
+  } goToPaymentSuccess(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(PaymentSuccessPage);
-  }goToMediumHoroscope(params){
+  } goToMediumHoroscope(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(MediumHoroscopePage);
-  }goToMatchMaking(params){
+  } goToMatchMaking(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(MatchMakingPage);
-  }goToMatchResult(params){
+  } goToMatchResult(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(MatchResultPage);
-  }goToServices(params){
+  } goToServices(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(ServicesPage);
-  }goToAstamangala(params){
+  } goToAstamangala(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(AstamangalaPage);
-  }goToPrashnoInputs(params){
+  } goToPrashnoInputs(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(PrashnoInputsPage);
-  }goToHoroscope2(params){
+  } goToHoroscope2(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(Horoscope2Page);
-  }goToWallet(params){
+  } goToWallet(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(WalletPage);
-  }goToDepositWallet(params){
+  } goToDepositWallet(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(DepositWalletPage);
-  }goToDepositHistroy(params){
+  } goToDepositHistroy(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(DepositHistroyPage);
-  }goToWalletStatement(params){
+  } goToWalletStatement(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(WalletStatementPage);
-  }goToLastTransaction(params){
+  } goToLastTransaction(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(LastTransactionPage);
-  }goToProduct(params){
+  } goToProduct(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(ProductPage);
-  }goToOrder(params){
+  } goToOrder(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(OrderPage);
-  }goToPayment(params){
+  } goToPayment(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(PaymentPage);
-  }goToSettings(params){
+  } goToSettings(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(SettingsPage);
-  }goToNithyaPanchanga(params){
+  } goToNithyaPanchanga(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(NithyaPanchangaPage);
-  }goToNithyaPanchangaMore(params){
+  } goToNithyaPanchangaMore(params) {
     if (!params) params = {};
     this.navCtrl.setRoot(NithyaPanchangaMorePage);
   }
